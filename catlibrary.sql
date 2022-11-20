@@ -27,7 +27,7 @@ CREATE TABLE CLIENTE
     EMAIL       varchar(50)     not null,
     TELEFONE    int(11)         not null,
     SENHA       varchar(32)     not null,
-    GENERO      int(1)		             ,
+    GENERO      int(1),
     CHECK(GENERO IN ('M','F','O','N')),
 
     IDLUGAR     int(20),
@@ -45,15 +45,15 @@ CREATE TABLE LIVRO
     GENERO          varchar(32)         not null,
     LANCAMENTO      varchar(32)         not null,
     PRECO           float(7,2)          not null,
-    DESCRICAO       varchar(500)        not null   UNIQUE,
+    DESCRICAO       varchar(500)        not null   UNIQUE
 );
 
 CREATE TABLE CLIENTE_LIVRO
 (
-    IDLIVRO         char(5)      FOREIGN KEY,
-    IDCLIENTE       char(20)     FOREIGN KEY,
+    IDLIVRO         int(5)      FOREIGN KEY,
+    IDCLIENTE       int(20)     FOREIGN KEY,
     FOREIGN KEY(IDCARTAO)    REFERENCES LIVRO(IDCARTAO),
     FOREIGN KEY(IDCLIENTE)   REFERENCES CLIENTE(IDCLIENTE),
-    PRIMARY KEY(IDLIVRO, IDCLIENTE),
-)
+    PRIMARY KEY(IDLIVRO, IDCLIENTE)
+);
 
